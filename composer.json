@@ -1,0 +1,67 @@
+{
+    "name": "adamdur/cms-core",
+    "description": "CMS Core ",
+    "type": "library",
+    "keywords": ["laravel","lumen"],
+    "require-dev": {
+        "infection/infection": "^0.26.19",
+        "matthewbdaly/artisan-standalone": "0.0.*",
+        "mockery/mockery": "^1.5",
+        "orchestra/testbench": "^8.0",
+        "orchestra/testbench-browser-kit": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "psalm/plugin-laravel": "^2.8",
+        "slevomat/coding-standard": "^8.3",
+        "squizlabs/php_codesniffer": "^3.7",
+        "vimeo/psalm": "^5.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Duris",
+            "email": "duris.nr@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Package\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php -r \"mkdir('bootstrap');\"",
+            "php -r \"mkdir('bootstrap'.DIRECTORY_SEPARATOR.'cache');\"",
+            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'Http');\"",
+            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Controllers');\"",
+            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Middleware');\"",
+            "php -r \"mkdir('routes');\"",
+            "php -r \"mkdir('storage');\"",
+            "php -r \"mkdir('storage'.DIRECTORY_SEPARATOR.'framework');\"",
+            "php -r \"mkdir('storage'.DIRECTORY_SEPARATOR.'framework'.DIRECTORY_SEPARATOR.'views');\""
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "pestphp/pest-plugin": true,
+            "infection/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Package\\Providers\\ServiceProvider"
+            ]
+        }
+    }
+}
